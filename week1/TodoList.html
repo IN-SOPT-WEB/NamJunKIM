@@ -3,40 +3,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My TodoList</title>
+    <link rel="stylesheet" href="TodoListStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
     <header>
-        <h2>Todo list</h2>
+        <h2>할 일을 정리해봅시다 뚝딱</h2>
     </header>
     <nav>
-        <div>오늘만 보기</div>
-        <div>내일만 보기</div>
-        <div>함께 보기</div>
+        <button type="button">오늘만 보기</button>
+        <button type="button">내일만 보기</button>
+        <button type="button">함께 보기</button>
     </nav>
     <main>
-        <section class="Section_left">
-            <h2>오늘 할일 </h2>
-            <div class="Todos_container">
-                <div class="input_container">
-                    <input type="text">
-                </div>
+        <section>
+            <h2>오늘 할 일</h2>
+            <div class="todos_container">
+            </div>
+            <div class="input_container">
+                <input type="text" placeholder="계획을 추가해주세요">
+                <button type="button" class="item_add-button">
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                </button>
             </div>
         </section>
-        <section class="Section_right">
-            <h2>내일 할일</h2>
-            <div class="Todos_container">
-                <ul>
-                    <li>예시1</li>
-                    <li>예시2</li>
+        <section>
+            <h2>내일 할 일</h2>
+            <div class="todos_container">
+                <ul class="todo_list">
+                    <li class="todo_list-item">
+                        <p class="list_item-content">나무 게임 하기</p>
+                        <button type="button" class="item_delete-button">
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                        </button>
+                    </li>
+                    <li class="todo_list-item">
+                        <p class="list_item-content">세미나 과제 하기</p>
+                        <button type="button" class="item_delete-button">
+                            <span class="material-symbols-outlined">
+                            delete
+                            </span>
+                        </button>
+                    </li>
                 </ul>
-                <div class="input_container">
-                    <input type="text">
-                </div>
+            </div>
+            <div class="input_container">
+                <input type="text" placeholder="계획을 추가해주세요">
+                <button type="button" class="item_add-button">
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                </button>
+                
             </div>
         </section>
     </main>
-    <footer>Copyright C IN Sopt</footer>
+    <footer>Copyright C INSOPT</footer>
 </body>
 </html>
