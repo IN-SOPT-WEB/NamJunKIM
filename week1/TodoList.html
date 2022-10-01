@@ -7,36 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h2>Todo list</h2></header>
+    <header>
+        <h2>Todo list</h2>
+    </header>
     <nav>
         <div>오늘만 보기</div>
         <div>내일만 보기</div>
         <div>함께 보기</div>
     </nav>
-    <section>
-        <section>
+    <main>
+        <section class="Section_left">
             <h2>오늘 할일 </h2>
             <div class="Todos_container">
-                <div class="input_container"></div>
+                <div class="input_container">
+                    <input type="text">
+                </div>
             </div>
         </section>
-        <section>
+        <section class="Section_right">
             <h2>내일 할일</h2>
             <div class="Todos_container">
-                <div class="todoItem_tomorrow">
-                    <div>예시1</div>
-                    <div>쓸</div>
+                <ul>
+                    <li>예시1</li>
+                    <li>예시2</li>
+                </ul>
+                <div class="input_container">
+                    <input type="text">
                 </div>
-                <div class="todoItem_tomorrow">
-                    <div>예시1</div>
-                    <div>쓸</div>
-                </div>
-            </div>
-            <div class="Todos_container">
-                <div class="input_container"></div>
             </div>
         </section>
-    </section>
+    </main>
     <footer>Copyright C IN Sopt</footer>
 </body>
 </html>
