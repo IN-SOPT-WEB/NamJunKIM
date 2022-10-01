@@ -6,8 +6,8 @@
 ## 🔗 Homework PR Link 
 
 |주차|과제명|링크|
-|------|---|---:|
-|1차 세미나|**1**|https://github.com/IN-SOPT-WEB/NamJunKIM/tree/week1/week1|
+|------|---|---|
+|1차 세미나|**1주차 과제**|[링크](https://github.com/IN-SOPT-WEB/NamJunKIM/tree/week1/week1)|
 |2차 세미나|**2**|링크|
 |3차 세미나|**3**|링크|
 |4차 세미나|**4**|링크|
