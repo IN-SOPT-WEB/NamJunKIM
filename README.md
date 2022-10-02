@@ -7,14 +7,8 @@
 
 |주차|과제명|링크|
 |------|---|---|
-|1차|**1주차 과제**|[링크](https://github.com/IN-SOPT-WEB/NamJunKIM/tree/week1/week1)|
-|2차|**2**|링크|
-|3차|**3**|링크|
-|4차|**4**|링크|
-|5차|**5**|링크|
-|6차|**6**|링크|
-|7차|**7**|링크|
-|8차|**8**|링크|
+|1차|**todoList**|[링크](https://github.com/IN-SOPT-WEB/NamJunKIM/tree/week1/week1)|
+|2차|**velogClone**|[링크](https://github.com/IN-SOPT-WEB/NamJunKIM/tree/week1/week1)|
 
 
 ## 🔨 커밋 컨벤션(유다시티 컨벤션 가이드 참조)
