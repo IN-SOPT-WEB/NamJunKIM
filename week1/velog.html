@@ -12,9 +12,12 @@
         <h2 class="header_title">NamjunLog</h2>
         <div class="header_menu">
             <button type='button' class="search_icon">
+                <span class="material-symbols-outlined" style="margin-right:0.8rem">
+                    light_mode
+                </span>
                 <span class="material-symbols-outlined">
                     search
-                    </span>
+                </span>
             </button>
             <button type="button" class="write_article-button">새 글 작성</button>
             <div class="profile_image-section">
@@ -28,12 +31,31 @@
         </div>
     </header>
     <nav>
-        <div class="nav_right-section">
-            <button class="nav_trending_topic">트렌딩</button>
-            <button class="nav_new_topic">최신</button>
-            <button class="period_setting-modal">이번주</button>
+        <div class="nav_left-menu">
+            <button class="nav_button nav_trending_topic">
+                <span class="material-symbols-outlined">
+                    trending_up
+                </span>
+                <p>트렌딩</p>
+            </button>
+            <button class="nav_button nav_new_topic">
+                <span class="material-symbols-outlined" style="margin-bottom:0.3rem;">
+                    schedule
+                </span>
+                <p>최신</p>
+            </button>
+            <button class="nav_button period_setting">
+                <p>이번 주</p>
+                <span class="material-symbols-outlined">
+                    expand_more
+                </span>
+            </button>
         </div>
-        <button class="setting">더보기</button>
+        <button class="nav_expand-button">
+            <span class="material-symbols-outlined">
+                more_vert
+            </span>
+        </button>
     </nav>
     <main>
         <div class="article_card">
