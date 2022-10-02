@@ -45,7 +45,7 @@ header{
     justify-content: flex-start;
     align-items: center;
     width:100%;
-    height: 12.5%;
+    height: 5rem;
     font-weight: bold;
 }
 
@@ -96,7 +96,7 @@ nav{
     display:flex;
     align-items: center;
     width:100%;
-    height: 12.5%;
+    height: 3rem;
 }
 
 .nav_left-menu{
@@ -162,6 +162,7 @@ section{
 .thumbnail_container{
     height:45%;
     object-fit:cover;
+    border-radius: 0.3rem 0.3rem 0 0;
 }
 
 .content_container{
