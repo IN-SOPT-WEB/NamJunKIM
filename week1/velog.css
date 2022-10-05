@@ -144,7 +144,7 @@ section{
     margin-top:1rem;
 }
 
-.article_card{
+.article__card{
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -155,39 +155,39 @@ section{
     border-radius:0.3rem;
 }
 
-.article_card:hover{
+.article__card:hover{
     transition: all 0.5s;
     transform: translateY(-3%);
 }
 
-.thumbnail_container{
+.thumbnail__container{
     height:45%;
     object-fit:cover;
     border-radius: 0.3rem 0.3rem 0 0;
 }
 
-.content_container{
+.content__container{
     display:flex;
     flex-direction:column;
     height:45%;
     margin:0.3rem 0 0 0.8rem;
 }
 
-.article_title{
+.article__title{
     font-size:1.2rem;
     font-weight:bold;
 }
 
-.article_content{
+.article__content{
     flex-grow:2;
 }
 
-.article_info{
+.article__info{
     font-size:0.8rem;
     color: gray;
 }
 
-.content_footer{
+.content__footer{
     display:flex;
     justify-content:flex-start;
     align-items: center;
@@ -196,14 +196,14 @@ section{
     border-top: 1px solid rgb(233, 233, 233);
 }
 
-.publisher_profile{
+.publisher__profile{
     display:flex;
     align-items: center;
     flex-grow: 2;
     margin-left:0.8rem;
 }
 
-.publisher_photo{
+.publisher__photo{
     border-radius: 50rem;
     background-color: lightgreen;
     padding: 0.1rem 0.4rem;
@@ -211,19 +211,19 @@ section{
     font-size:0.7rem;
 }
 
-.article_likes{
+.article__likes{
     display:flex;
     align-items: center;
     margin-right:1rem;
     font-size:0.9rem;
 }
 
-.publisher_name{
+.publisher__name{
     font-weight: bold;
 }
 
 @media (max-width:1600px){
-    .article_card{
+    .article__card{
         width:30%;
         margin-bottom:5%;
     }
@@ -231,7 +231,7 @@ section{
 
 @media (max-width:1200px){
 
-    .article_card{
+    .article__card{
         width:48%;
         margin-bottom:4%;
     }
@@ -243,7 +243,7 @@ section{
         width:100%;
     }
 
-    .article_card{
+    .article__card{
         width:48%;
         margin-bottom:4%;
     }
@@ -255,17 +255,17 @@ section{
         width:100%;
     }
 
-    .article_card{
+    .article__card{
         width:100%;
         margin-bottom:5%;
     }
 
-    .thumbnail_container{
+    .thumbnail__container{
         height:55%;
         object-fit:cover;
     }
 
-    .content_container{
+    .content__container{
         height:35%;
     }
     
