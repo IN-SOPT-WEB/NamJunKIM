@@ -83,19 +83,19 @@ section{
     border: 0.1rem solid black;
 }
 
-section h2 {
+section > h2 {
     text-align: center;
     font-size:2rem;
     height:10%;
 }
 
-.todos_container{
+.todos__container{
     flex-grow: 2;
     display: flex;
     justify-content:center;
 }
 
-.todo_list{
+.todo-list{
     list-style:none;
     display: flex;
     flex-direction: column;
@@ -105,7 +105,7 @@ section h2 {
     font-size:1.2rem;
 }
 
-.todo_list-item{
+.todo-list__item{
     display:flex;
     align-items: center;
     width: 100%;
@@ -114,12 +114,12 @@ section h2 {
     padding: 1rem 0 1rem 0;
 }
 
-.list_item-content{ 
+.list-item__content{ 
     flex-grow: 2;
     margin-left:1rem;
 }
 
-.item_delete-button{
+.item-delete__button{
     margin-right:1.2rem;
     background-color: pink;
     width:10%;
@@ -127,13 +127,13 @@ section h2 {
     border-radius:5rem;
 }
 
-.input_container{
+.input__container{
     display:flex;
     align-items: center;
     margin-bottom: 2rem;
 }
 
-.input_container input{
+.input__container input{
     border:0.1rem solid black;
     border-radius: 1rem;
     flex-grow: 2;
@@ -141,7 +141,7 @@ section h2 {
     margin-left:1rem;
 }
 
-.item_add-button{
+.item-add__button{
     margin-right:1.2rem;
     background-color: pink;
     width:10%;
