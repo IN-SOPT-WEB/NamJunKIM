@@ -1,0 +1,162 @@
+* {
+    margin:0;
+    padding:0;
+    font:inherit;
+    color:inherit;
+}
+*, :after, :before {
+    box-sizing:border-box;
+    flex-shrink:0;
+}
+
+:root {
+    -webkit-tap-highlight-color:transparent;
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+    cursor:default;
+    line-height:1.5;
+    overflow-wrap:break-word;
+    word-break:break-word;
+    tab-size:4
+}
+
+html, body {
+    height:100%;
+}
+
+
+button {
+    background:none;
+    border:0;
+    cursor:pointer;
+}
+
+a {
+    text-decoration:none
+}
+
+header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF4B00;
+    text-align:center;
+    height:5rem;
+    
+}
+
+header h2 {
+    font-size:2rem;
+}
+
+nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:5rem;
+    font-size: 1rem;
+}
+
+nav button {
+    background-color:pink;
+    margin : 0 0.5rem 0 0.5rem;
+    padding: 0.8rem;
+    border-radius: 5rem;
+
+}
+
+.nav-item{
+    border:0.1rem solid black;
+    margin-left: 1rem;
+}
+
+main{
+    display:flex;
+    height:100%;
+}
+
+section{
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    width:50%;
+    border: 0.1rem solid black;
+}
+
+section > h2 {
+    text-align: center;
+    font-size:2rem;
+    height:10%;
+}
+
+.todos__container{
+    flex-grow: 2;
+    display: flex;
+    justify-content:center;
+}
+
+.todo-list{
+    list-style:none;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items: center;
+    width:80%;
+    font-size:1.2rem;
+}
+
+.todo-list__item{
+    display:flex;
+    align-items: center;
+    width: 100%;
+    border-bottom:0.1rem solid;
+    margin-bottom: 2rem;
+    padding: 1rem 0 1rem 0;
+}
+
+.list-item__content{ 
+    flex-grow: 2;
+    margin-left:1rem;
+}
+
+.item-delete__button{
+    margin-right:1.2rem;
+    background-color: pink;
+    width:10%;
+    height:3rem;
+    border-radius:5rem;
+}
+
+.input__container{
+    display:flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.input__container input{
+    border:0.1rem solid black;
+    border-radius: 1rem;
+    flex-grow: 2;
+    height: 3rem;
+    margin-left:1rem;
+}
+
+.item-add__button{
+    margin-right:1.2rem;
+    background-color: pink;
+    width:10%;
+    height:4rem;
+    border-radius:5rem;
+    margin-left: 1rem;
+}
+
+footer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF4B00;
+    text-align:center;
+    height:3rem;
+    
+}
+
