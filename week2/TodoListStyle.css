@@ -57,12 +57,18 @@ nav{
     font-size: 1rem;
 }
 
-nav button {
+.action-btn {
     background-color:pink;
     margin : 0 0.5rem 0 0.5rem;
     padding: 0.8rem;
     border-radius: 5rem;
 
+}
+
+.action-btn:hover{
+    color:white;
+    background-color: black;
+    transition: all 0.5s;
 }
 
 .nav-item{
@@ -160,3 +166,8 @@ footer{
     
 }
 
+.hidden{
+    width:0;
+    overflow:hidden;
+    transition: all 0.5s;
+}
