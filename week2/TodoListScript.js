@@ -1,8 +1,7 @@
 "use strict";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
-
-// 네비게이션 바 이동 및 section 크기 조정
+const Section = $$('.section');
 const ToggleNavigator = (idx) => {
     const todaySection = $('.today-section');
     const tomorrowSection = $('.tomorrow-section');
@@ -25,14 +24,10 @@ const ToggleNavigator = (idx) => {
             break;
     }
 };
-
-//계획 입력하기
 const getTodoItem = (e) => {
     e.preventDefault();
     let todayInput = $('.today-todo__input');
     let tomorrowInput = $('.tomorrow-todo__input');
-
-    //오늘할일 등록시
     if (e.target.classList.contains('today-add__button')) {
         if (todayInput.value !== '') {
             const li = document.createElement('li');
@@ -48,7 +43,6 @@ const getTodoItem = (e) => {
             alert('할일을 입력해주세요');
         }
     }
-    //내일할일 등록시
     if (e.target.classList.contains('tomorrow-add__button')) {
         if (tomorrowInput.value !== '') {
             const li = document.createElement('li');
@@ -65,16 +59,12 @@ const getTodoItem = (e) => {
         }
     }
 };
-
-//아이템 삭제
 const deleteTodoItem = (e) => {
     if (e.target.classList.contains('item-delete__button')) {
         const removeListItem = e.target.parentNode;
         removeListItem.remove();
     }
 };
-
-//클릭시 이벤트 등록
 const attachEvent = ({ navMenuList }) => {
     for (let i = 0; i < navMenuList.length; i++) {
         navMenuList[i].addEventListener('click', () => ToggleNavigator(i));
@@ -86,13 +76,9 @@ const attachEvent = ({ navMenuList }) => {
         itemAddButton.addEventListener('click', getTodoItem);
     });
 };
-
 const todoEventManager = (items) => {
     attachEvent(items);
 };
-
-
-// 모든 DOM요소를 불러온 뒤 이벤트 부착
 window.onload = () => {
     todoEventManager({
         navMenuList: $$('.nav-btn'),
