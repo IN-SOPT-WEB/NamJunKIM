@@ -49,12 +49,13 @@ header h2 {
     font-size:2rem;
 }
 
-nav{
+.nav-list{
     display:flex;
     justify-content:center;
     align-items:center;
     height:5rem;
     font-size: 1rem;
+    list-style: none;
 }
 
 .action-btn {
@@ -62,7 +63,7 @@ nav{
     margin : 0 0.5rem 0 0.5rem;
     padding: 0.8rem;
     border-radius: 5rem;
-
+    
 }
 
 .action-btn:hover{
@@ -79,14 +80,16 @@ nav{
 main{
     display:flex;
     height:100%;
+
 }
 
-section{
+.today-section, .tomorrow-section{
     display:flex;
     flex-direction: column;
     height:100%;
     width:50%;
     border: 0.1rem solid black;
+    transition: all 2s;
 }
 
 section > h2 {
@@ -168,6 +171,7 @@ footer{
 
 .hidden{
     width:0;
+    display:none;
     overflow:hidden;
     transition: all 0.5s;
 }
