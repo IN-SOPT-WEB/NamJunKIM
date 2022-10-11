@@ -150,9 +150,10 @@ nav{
     flex-direction: column;
     background-color: white;
     cursor: pointer;
+    z-index: 993;
 }
 
-.dropbox > p {
+.dropdownbox > p {
     width:100%;
     text-align: center;
     border-bottom: 0.1rem solid lightgray;
