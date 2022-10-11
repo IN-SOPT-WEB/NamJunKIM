@@ -12,10 +12,7 @@ let currentSlide = 1;
 const moveToWrite = () => {
     location.href = "write.html";
 }
-//dropdown 토글
-const toggleDropdown = () => {
-    $('.dropbox').classList.toggle('hidden');
-}
+
 //클릭시 모달 호출
 const openModal = (e) => {
     let modalCard = e.target.closest('.article__card').cloneNode(true);
@@ -38,7 +35,12 @@ const stopPropagation = (e) => {
     e.stopPropagation();
 }
 
-// 드랍다운시 선택된 메뉴 표시
+//드랍다운 토글
+const toggleDropdown = () => {
+    $('.dropdownbox').classList.toggle('hidden');
+}
+
+// 드랍다운에서 선택된 메뉴 표시
 const pickdropdownMenu = (e) => {
     const periodOptions = $$('.option');
     const pickedOption = $('.period');
