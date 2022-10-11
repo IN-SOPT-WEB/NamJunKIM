@@ -168,11 +168,40 @@ nav{
     color:rgb(15, 194, 15);
 }
 
-section{
+.carousel-container{
+    overflow-x: hidden;
+}
+
+.carousel-section{
     display: flex;
-    justify-content: space-between;
-    flex-wrap:wrap;
+    gap:3rem;
     margin-top:1rem;
+    padding-right: 1rem;
+    transition: all 1s;
+}
+
+.carousel{
+    font-size:2rem;
+    border-radius:50rem;
+    padding:0.5rem;
+}
+.carousel:hover{
+    color:white;
+    background-color: rgba(0,0,0,.8);
+}
+
+.carousel-left__btn{
+    position:fixed;
+    top:300;
+    left:100;
+    z-index: 990;
+}
+
+.carousel-right__btn{
+    position:fixed;
+    right:100;
+    top:300;
+    z-index: 990;
 }
 
 .article__card{
@@ -258,8 +287,8 @@ section{
     position:fixed;
     width:30rem;
     height:30rem;
-    top: 25%;
-    left: 25%;
+    top: 300;
+    left: 400;
     display: flex;
     flex-direction: column;
     background-color: #fff;

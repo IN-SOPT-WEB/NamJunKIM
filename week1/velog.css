@@ -137,10 +137,10 @@ nav{
     background-color: #fff;
 }
 
-section{
+section > .card-section{
     display: flex;
     justify-content: space-between;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     margin-top:1rem;
 }
 

@@ -2,8 +2,10 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
+//로컬 스토리지에 저장한 요소가 있다면 받고, 없다면 빈 배열로 선언
 const tagStorage = JSON.parse(window.localStorage.getItem('tags')) || [] ;
 
+//로컬 스토리지 호출
 const loadLocalstorage = ()=>{
     tagStorage.map((tagName)=>{
         const loadedTag = document.createElement('li');
@@ -13,11 +15,12 @@ const loadLocalstorage = ()=>{
         loadedTag.addEventListener('click', deleteTag);
     })
 }
-
+// 로컬 스토리지에 저장
 const saveToLocalStorage = () => {
     window.localStorage.setItem('tags', JSON.stringify(tagStorage));
 }
 
+// 태그 삭제 및 로컬스토리지에서 제거
 const deleteTag = (e) => {
     e.target.remove();
     const savedItemIndex = tagStorage.indexOf(e.target.innerText);
@@ -25,6 +28,7 @@ const deleteTag = (e) => {
     saveToLocalStorage();
 }
 
+// 태그 추가 및 로컬스토리지 저장 
 const addTag = (e) => {
     e.preventDefault();
     if(e.keyCode === 13){
@@ -43,6 +47,7 @@ const addTag = (e) => {
     }
 }
 
+//velog.html로 이동
 const goToHome = () => {
     location.href = 'velog.html';
 }
@@ -56,7 +61,7 @@ const handleTagEventManager = (items) => {
     loadLocalstorage()
     attachEvent(items);
 };
-
+//모든 요소가 로딩된 후 이벤트 실행
 window.onload = () => {
     handleTagEventManager({
         Input:$('.tags-input'),
