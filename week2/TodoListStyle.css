@@ -112,6 +112,7 @@ section > h2 {
     align-items: center;
     width:80%;
     font-size:1.2rem;
+    overflow-y:auto;
 }
 
 .todo-list__item{
@@ -157,6 +158,7 @@ section > h2 {
     height:4rem;
     border-radius:5rem;
     margin-left: 1rem;
+    font-size:2rem;
 }
 
 footer{

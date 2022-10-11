@@ -29,7 +29,7 @@
             <h2>오늘 할 일</h2>
             <div class="todos__container">
                 <ul class="todo-list today-todos">
-                    <li class="todo-list__item">
+                    <li class="todo-list__item today-item">
                         <p class="list-item__content">나무 게임 하기</p>
                         <button type="button" class="item-delete__button action-btn">
                             X
@@ -37,20 +37,16 @@
                     </li>
                 </ul>
             </div>
-            <div class="input__container">
-                <input type="text" placeholder="오늘의 계획을 추가해주세요" class="today-todo__input">
-                <button type="button" class="today-add__button action-btn">
-                    <span class="material-symbols-outlined">
-                        add
-                    </span>
-                </button>
-            </div>
+            <form class="input__container today">
+                <input type="text" name='today' placeholder="오늘의 계획을 추가해주세요" class="today-todo__input">
+                <button type="button" class="item-add__button today-add__button action-btn">+</button>
+            </form>
         </section>
         <section class="section tomorrow-section">
             <h2>내일 할 일</h2>
             <div class="todos__container">
                 <ul class="todo-list tomorrow-todos">
-                    <li class="todo-list__item">
+                    <li class="todo-list__item tomorrow-item">
                         <p class="list-item__content">나무 게임 하기</p>
                         <button type="button" class="item-delete__button action-btn">
                             X
@@ -58,15 +54,10 @@
                     </li>
                 </ul>
             </div>
-            <div class="input__container">
-                <input type="text" placeholder="내일의 계획을 추가해주세요" class="tomorrow-todo__input">
-                <button type="button" class="tomorrow-add__button action-btn">
-                    <span class="material-symbols-outlined">
-                        add
-                    </span>
-                </button>
-                
-            </div>
+            <form class="input__container tomorrow">
+                <input type="text" name='tomorrow' placeholder="내일의 계획을 추가해주세요" class="tomorrow-todo__input">
+                <button type="button" class="item-add__button tomorrow-add__button action-btn">+</button>
+            </form>
         </section>
     </main>
     <footer>Copyright C INSOPT</footer>

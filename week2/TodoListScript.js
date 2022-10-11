@@ -1,6 +1,9 @@
 "use strict";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
+const Section = $$('.section');
+
+// 네비게이션 바 이동 및 section 크기 조정
 const ToggleNavigator = (idx) => {
     const todaySection = $('.today-section');
     const tomorrowSection = $('.tomorrow-section');
@@ -23,39 +26,78 @@ const ToggleNavigator = (idx) => {
             break;
     }
 };
-const showTodo = () => {
+
+//계획 입력하기
+const getTodoItem = (e) => {
+    e.preventDefault();
+    let todayInput = $('.today-todo__input');
+    let tomorrowInput = $('.tomorrow-todo__input');
+
+    //오늘할일 등록시
+    if (e.target.classList.contains('today-add__button')) {
+        if (todayInput.value !== '') {
+            const li = document.createElement('li');
+            li.innerHTML = `<p class="list-item__content">${todayInput.value}</p>
+            <button type="button" class="item-delete__button action-btn">
+                X
+            </button>`;
+            li.classList.add('todo-list__item');
+            $('.today-todos').appendChild(li);
+            todayInput.value = '';
+        }
+        else {
+            alert('할일을 입력해주세요');
+        }
+    }
+    //내일할일 등록시
+    if (e.target.classList.contains('tomorrow-add__button')) {
+        if (tomorrowInput.value !== '') {
+            const li = document.createElement('li');
+            li.innerHTML = `<p class="list-item__content">${tomorrowInput.value}</p>
+            <button type="button" class="item-delete__button action-btn">
+                X
+            </button>`;
+            li.classList.add('todo-list__item');
+            $('.tomorrow-todos').appendChild(li);
+            tomorrowInput.value = '';
+        }
+        else {
+            alert('할일을 입력해주세요');
+        }
+    }
 };
-const makeTodayTodo = () => {
-};
-const deleteTodayTodo = () => {
-};
-const makeTomorrowTodo = () => {
-};
-const deleteTodoItem = (event) => {
-    if (event.target.classList.contains('item-delete__button')) {
-        const removeListItem = event.target.parentNode;
+
+//아이템 삭제
+const deleteTodoItem = (e) => {
+    if (e.target.classList.contains('item-delete__button')) {
+        const removeListItem = e.target.parentNode;
         removeListItem.remove();
     }
 };
-const attachEvent = ({ navMenuList, tomorrowTodoAddButton, todayTodoAddButton }) => {
-    const Section = $$('.section');
+
+//클릭시 이벤트 등록
+const attachEvent = ({ navMenuList }) => {
     for (let i = 0; i < navMenuList.length; i++) {
         navMenuList[i].addEventListener('click', () => ToggleNavigator(i));
     }
     Section.forEach((itemDeleteButton) => {
         itemDeleteButton.addEventListener('click', deleteTodoItem);
     });
-    tomorrowTodoAddButton.addEventListener('click', () => { });
-    todayTodoAddButton.addEventListener('click', () => { });
+    Section.forEach((itemAddButton) => {
+        itemAddButton.addEventListener('click', getTodoItem);
+    });
 };
+
 const todoEventManager = (items) => {
     attachEvent(items);
 };
+
+
+// 모든 DOM요소를 불러온 뒤 이벤트 부착
 window.onload = () => {
     todoEventManager({
         navMenuList: $$('.nav-btn'),
-        todayTodoAddButton: $('.today-add__button'),
+        itemAddButton: $$('.item-add__button'),
         itemDeleteButton: $$('.item-delete__button'),
-        tomorrowTodoAddButton: $('.tomorrow-add__button')
     });
 };
