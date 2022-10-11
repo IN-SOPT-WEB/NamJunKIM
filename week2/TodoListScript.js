@@ -1,7 +1,6 @@
 "use strict";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
-const Section = $$('.section');
 
 // 네비게이션 바 이동 및 section 크기 조정
 const ToggleNavigator = (idx) => {

@@ -9,6 +9,10 @@ interface ButtonItems {
 
 }
 
+interface Selector {
+    
+}
+
 interface TargetListItem {
     preventDefault(): unknown;
     target :HTMLButtonElement;
@@ -53,7 +57,7 @@ const getTodoItem = (e:TargetListItem): void  => {
             $('.today-todos').appendChild(li);
             todayInput.value = '';
         } else {
-            alert('할일을 입력해주세요');
+            alert('할일을 입력해주세요')
         }
     }
     if(e.target.classList.contains('tomorrow-add__button')){
