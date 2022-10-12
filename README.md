@@ -13,7 +13,7 @@
 |1주차|[**생각과제-웹접근성**](https://github.com/IN-SOPT-WEB/NamJunKIM/pull/1/files#diff-fe4b77b543d5d1cf7add35048380512c3a38e759de07f55cdffc043be9ebb2e5)|
 |2주차|[**todoList with TS**](https://github.com/IN-SOPT-WEB/NamJunKIM/pull/3)|
 |2주차|[**velogClone with JS**](https://github.com/IN-SOPT-WEB/NamJunKIM/pull/4)|
-|2주차|[**생각과제-타입스크립트(작성중)**]()|
+|2주차|[**생각과제-타입스크립트**](https://github.com/IN-SOPT-WEB/NamJunKIM/tree/week2-thinking)|
 
 ## 🔨 커밋 컨벤션(유다시티 컨벤션 가이드 참조)
 
