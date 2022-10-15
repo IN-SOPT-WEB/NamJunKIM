@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import ImageView from '../Content/ImageView';
 import ScoreView from '../Content/ScoreView';
-import QuizItems from '../Content/QuizItems';
+import QuizController from '../Content/QuizController';
 
 export default function Contents() {
   return (
     <Styled.Root>
       <ScoreView />
       <ImageView />
-      <QuizItems />
+      <QuizController />
     </Styled.Root>
   );
 }
@@ -24,6 +24,6 @@ const Styled = {
     width: 100%;
     height: 50rem;
     background-color: #343131;
-    color:white;
+    color:black;
     `,
 };
