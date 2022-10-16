@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import ImageView from '../Content/ImageView';
-import ScoreView from '../Content/ScoreView';
-import QuizController from '../Content/QuizController';
+import ImageView from '../content/ImageView';
+import ScoreView from '../content/ScoreView';
+import QuizController from '../content/QuizController';
 
 export default function Contents() {
   return (

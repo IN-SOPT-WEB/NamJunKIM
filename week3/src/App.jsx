@@ -1,26 +1,18 @@
 import React from 'react';
-import styled from 'styled-components';
-import Header from './Components/Common/Header';
-import Contents from './Components/Common/Contents';
+import { ThemeProvider } from 'styled-components';
+import Header from './Components/common/Header';
+import Contents from './Components/common/Contents';
+import GlobalStyle from './styles/GlobalStyle';
+import theme from './styles/theme';
 
 function App() {
   return (
-    <Styled.Root>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
       <Header />
       <Contents />
-    </Styled.Root>
+    </ThemeProvider>
   );
 }
 
 export default App;
-
-const Styled = {
-  Root: styled.div`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  `,
-};
