@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ImageView from '../content/ImageView';
 import ScoreView from '../content/ScoreView';
 import QuizController from '../content/QuizController';
+import { flexColumnCenter } from '../../common/mixin';
 
 export default function Contents() {
   return (
@@ -16,10 +17,8 @@ export default function Contents() {
 
 const Styled = {
   Root: styled.div`
-    display: flex;
-    flex-direction: column;
+    ${flexColumnCenter};
     justify-content: space-between;
-    align-items: center;
     gap:50;
     width: 100%;
     height: 50rem;
