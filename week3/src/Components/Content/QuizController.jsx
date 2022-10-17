@@ -1,15 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function QuizController() {
+export default function QuizController({ roundItems, getCurrentRound }) {
   return (
     <Styled.ItemList>
-      {/* map */}
-      <Styled.Item>김남준</Styled.Item>
-      <Styled.Item>김남준</Styled.Item>
-      <Styled.Item>김남준</Styled.Item>
-      <Styled.Item>김남준</Styled.Item>
-      <Styled.Item>김남준</Styled.Item>
+      {roundItems.answers.map((item) => (
+        <Styled.Item key={item.toString()} onClick={getCurrentRound}>
+          {item}
+        </Styled.Item>
+      ))}
     </Styled.ItemList>
   );
 }
@@ -28,5 +27,6 @@ const Styled = {
     background-color:lightgray;
     padding: 0.5rem 1rem;
     border-radius: 3rem;
+    cursor:pointer;
   `,
 };

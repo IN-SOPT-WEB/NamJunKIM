@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ImageView from '../content/ImageView';
 import ScoreView from '../content/ScoreView';
 import QuizController from '../content/QuizController';
+import round from '../../models/gameData';
 import { flexColumnCenter } from '../../common/mixin';
 
 export default function Contents() {
+  const [roundItems, setRoundItems] = useState([...round][0]);
+  const [stepNumber, setStepNumber] = useState(0);
+
+  useEffect(() => {
+    setRoundItems([...round][stepNumber]);
+  }, [stepNumber]);
+
+  const goNextRound = () => {
+    setStepNumber(stepNumber + 1);
+  };
+
+  const handleClick = (e) => {
+    if (e.target.innerText === roundItems.correctAnswer && stepNumber !== 4) {
+      goNextRound();
+    }
+  };
+
   return (
     <Styled.Root>
       <ScoreView />
-      <ImageView />
-      <QuizController />
+      <ImageView
+        roundItems={roundItems}
+      />
+      <QuizController
+        roundItems={roundItems}
+        handleClick={handleClick}
+      />
     </Styled.Root>
   );
 }
