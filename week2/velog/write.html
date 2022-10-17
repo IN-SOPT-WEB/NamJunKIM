@@ -1,0 +1,56 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>새글작성</title>
+
+    <style>
+        .tags-main{
+            display:flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .tags-list{
+            display:flex;
+            align-items: center;
+            list-style: none;
+            flex-wrap:wrap;
+        }
+        .tags-form{
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .tag-item{
+            border-radius: 5rem;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            background-color: rgb(236, 231, 231);
+            font-size:1.5rem;
+            padding: 1rem 2rem;
+            color: rgb(86, 205, 86);
+            margin: 0rem 0.5rem 0.5rem 0.5rem;
+        }
+
+        .tags-input{
+            border: none;
+            appearance:none;
+            outline: none;
+            padding-top:1rem;
+            margin-left: 1rem;
+            font-size:1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h1> 태그 추가하기 </h1>
+    <main class="tags-main">
+        <ul class="tags-list"></ul>
+        <form class="tags-form">
+            <input type="text" placeholder="태그는 여기에 입력" class="tags-input">
+        </form>
+    </main>
+    <button type="button" class="move-btn">홈으로</button>
+</body>
+<script type="module" src="./write.js"></script>
+</html>

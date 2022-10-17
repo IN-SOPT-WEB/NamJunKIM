@@ -1,0 +1,67 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My TodoList</title>
+    <link rel="stylesheet" href="TodoListStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+    <header>
+        <h2>할 일을 정리해봅시다 뚝딱</h2>
+    </header>
+    <nav>
+        <ul class="nav-list">
+            <li>
+                <button type="button" class="action-btn nav-btn">오늘만 보기</button>
+            </li>
+            <li>
+                <button type="button" class="action-btn nav-btn">내일만 보기</button>
+            </li>
+            <li>
+                <button type="button" class="action-btn nav-btn">함께 보기</button>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section class="section today-section">
+            <h2>오늘 할 일</h2>
+            <div class="todos__container">
+                <ul class="todo-list today-todos">
+                    <li class="todo-list__item today-item">
+                        <p class="list-item__content">나무 게임 하기</p>
+                        <button type="button" class="item-delete__button action-btn">
+                            X
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <form class="input__container today">
+                <input type="text" name='today' placeholder="오늘의 계획을 추가해주세요" class="today-todo__input">
+                <button type="button" class="item-add__button today-add__button action-btn">+</button>
+            </form>
+        </section>
+        <section class="section tomorrow-section">
+            <h2>내일 할 일</h2>
+            <div class="todos__container">
+                <ul class="todo-list tomorrow-todos">
+                    <li class="todo-list__item tomorrow-item">
+                        <p class="list-item__content">나무 게임 하기</p>
+                        <button type="button" class="item-delete__button action-btn">
+                            X
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <form class="input__container tomorrow">
+                <input type="text" name='tomorrow' placeholder="내일의 계획을 추가해주세요" class="tomorrow-todo__input">
+                <button type="button" class="item-add__button tomorrow-add__button action-btn">+</button>
+            </form>
+        </section>
+    </main>
+    <footer>Copyright C INSOPT</footer>
+
+    <script type='module' src='TodoListScript.js'></script>
+</body>
+</html>
