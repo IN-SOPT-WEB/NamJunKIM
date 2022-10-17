@@ -4,7 +4,7 @@ import ImageView from '../content/ImageView';
 import ScoreView from '../content/ScoreView';
 import QuizController from '../content/QuizController';
 import rounds from '../../models/gameData';
-import { flexColumnCenter } from '../../common/mixin';
+import { flexColumnCenter } from '../../styles/mixin';
 import ResetButton from '../content/ResetButton';
 
 export default function Contents() {

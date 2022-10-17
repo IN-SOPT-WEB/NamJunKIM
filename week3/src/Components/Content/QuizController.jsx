@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { flexRowCenter } from '../../styles/mixin';
 
 export default function QuizController({ currentRound, handleClick }) {
   return (
@@ -15,17 +16,24 @@ export default function QuizController({ currentRound, handleClick }) {
 
 const Styled = {
   ItemList: styled.ul`
-    width: 30rem;
-    display: flex;
+    ${flexRowCenter}
+    width: 100%;
     list-style: none;
-    justify-content:space-around;
-    align-items:center;
     padding:0;
   `,
   Item: styled.li`
-    background-color:lightgray;
-    padding: 0.5rem 1rem;
+    ${flexRowCenter}
+    cursor: pointer;
+    padding: 0.6rem 1.2rem;
     border-radius: 3rem;
-    cursor:pointer;
-  `,
+    font-size:1.6rem;
+    margin-right: 2rem;
+    transition: all 1s;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    &:hover{
+      color:white;
+      transition: all 1s;
+      background-color:black;
+    }
+    `,
 };

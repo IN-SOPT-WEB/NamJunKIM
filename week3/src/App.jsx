@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import Header from './Components/common/Header';
-import Contents from './Components/common/Contents';
+import Header from './Components/main/Header';
+import Contents from './Components/main/Contents';
 import GlobalStyle from './styles/GlobalStyle';
 import theme from './styles/theme';
 

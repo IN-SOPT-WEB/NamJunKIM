@@ -9,7 +9,7 @@ ${reset}
   }
 
   body {
-    font-family: "Helvetica", "Arial", sans-serif;
+    font-family: 'BMHANNAPro', "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
   }
 `;
