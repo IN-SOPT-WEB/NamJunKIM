@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function QuizController({ roundItems, getCurrentRound }) {
+export default function QuizController({ roundItems, handleClick }) {
   return (
     <Styled.ItemList>
       {roundItems.answers.map((item) => (
-        <Styled.Item key={item.toString()} onClick={getCurrentRound}>
+        <Styled.Item key={item.toString()} onClick={handleClick}>
           {item}
         </Styled.Item>
       ))}

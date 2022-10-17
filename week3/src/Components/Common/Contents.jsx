@@ -17,10 +17,18 @@ export default function Contents() {
   const goNextRound = () => {
     setStepNumber(stepNumber + 1);
   };
+  const resetGame = () => {
+    setStepNumber(0);
+  };
 
   const handleClick = (e) => {
-    if (e.target.innerText === roundItems.correctAnswer && stepNumber !== 4) {
+    const pickedItem = e.target.innerText;
+    const isCorrect = roundItems.correctAnswer;
+    if (pickedItem === isCorrect && stepNumber !== 4) {
       goNextRound();
+    }
+    if (pickedItem === isCorrect && stepNumber === 4) {
+      resetGame();
     }
   };
 
