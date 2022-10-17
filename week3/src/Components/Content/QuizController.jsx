@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function QuizController({ roundItems, handleClick }) {
+export default function QuizController({ currentRound, handleClick }) {
   return (
     <Styled.ItemList>
-      {roundItems.answers.map((item) => (
+      {currentRound.answers.map((item) => (
         <Styled.Item key={item.toString()} onClick={handleClick}>
           {item}
         </Styled.Item>
@@ -20,7 +20,6 @@ const Styled = {
     list-style: none;
     justify-content:space-around;
     align-items:center;
-    margin-bottom: 5rem;
     padding:0;
   `,
   Item: styled.li`

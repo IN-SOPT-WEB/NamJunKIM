@@ -4,7 +4,7 @@ import { flexRowCenter } from '../../common/mixin';
 
 export default function Header() {
   return (
-    <Styled.Root>당신 누구야!!!</Styled.Root>
+    <Styled.Root>내 주식 떡상 가즈아~</Styled.Root>
 
   );
 }

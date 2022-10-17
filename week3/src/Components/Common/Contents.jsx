@@ -3,44 +3,56 @@ import styled from 'styled-components';
 import ImageView from '../content/ImageView';
 import ScoreView from '../content/ScoreView';
 import QuizController from '../content/QuizController';
-import round from '../../models/gameData';
+import rounds from '../../models/gameData';
 import { flexColumnCenter } from '../../common/mixin';
+import ResetButton from '../content/ResetButton';
 
 export default function Contents() {
-  const [roundItems, setRoundItems] = useState([...round][0]);
-  const [stepNumber, setStepNumber] = useState(0);
+  const [currentRound, setCurrentRound] = useState([...rounds][0]);
+  const [step, setStep] = useState(0);
 
   useEffect(() => {
-    setRoundItems([...round][stepNumber]);
-  }, [stepNumber]);
+    setCurrentRound([...rounds][step]);
+  }, [step]);
 
   const goNextRound = () => {
-    setStepNumber(stepNumber + 1);
+    setStep(step + 1);
   };
   const resetGame = () => {
-    setStepNumber(0);
+    if (step === 0) {
+      alert('이미 첫 라운드입니다.');
+    } else {
+      setStep(0);
+    }
   };
 
   const handleClick = (e) => {
     const pickedItem = e.target.innerText;
-    const isCorrect = roundItems.correctAnswer;
-    if (pickedItem === isCorrect && stepNumber !== 4) {
+    const isCorrect = currentRound.correctAnswer;
+    const finalRound = 4;
+    if (pickedItem === isCorrect && step !== finalRound) {
       goNextRound();
     }
-    if (pickedItem === isCorrect && stepNumber === 4) {
+    if (pickedItem === isCorrect && step === finalRound) {
+      alert('승리했습니다!!');
       resetGame();
     }
   };
 
   return (
     <Styled.Root>
-      <ScoreView />
+      <ScoreView
+        step={step}
+      />
       <ImageView
-        roundItems={roundItems}
+        currentRound={currentRound}
       />
       <QuizController
-        roundItems={roundItems}
+        currentRound={currentRound}
         handleClick={handleClick}
+      />
+      <ResetButton
+        resetGame={resetGame}
       />
     </Styled.Root>
   );
@@ -53,7 +65,6 @@ const Styled = {
     gap:50;
     width: 100%;
     height: 50rem;
-    background-color: #343131;
     color:black;
     `,
 };

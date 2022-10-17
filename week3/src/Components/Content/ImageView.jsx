@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { flexRowCenter } from '../../common/mixin';
 
-export default function ImageView() {
+export default function ImageView({ currentRound }) {
   return (
     <Styled.Root>
-      <Styled.Image alt="사람 사진" />
+      <Styled.Image src={currentRound.image} alt={currentRound.alt} />
     </Styled.Root>
 
   );
@@ -12,14 +13,17 @@ export default function ImageView() {
 
 const Styled = {
   Root: styled.div`
+    ${flexRowCenter}
     max-width: 30rem;
-    width:85%;
-    height: 30rem;
-    border: 1px solid black;
+    width:21rem;
+    height: 21rem;
+    background-color: white;
+    border-radius:3rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   `,
   Image: styled.img`
-    width: 100%;
-    height: 100%;
+    width: 75%;
+    height: 75%;
   `
   ,
 };

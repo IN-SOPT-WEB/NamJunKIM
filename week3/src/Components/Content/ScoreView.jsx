@@ -1,9 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function ScoreView() {
+export default function ScoreView({ step }) {
   return (
-    <Styled.Root>0점</Styled.Root>
+    <Styled.Root>
+      현재점수 :
+      {' '}
+      {step * 20}
+      점
+    </Styled.Root>
   );
 }
 
