@@ -2,15 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { flexRowCenter } from '../../styles/mixin';
 
-export default function ImageView({ currentRound }) {
+export default function ImageView({ currentRoundData, afterFinalRound }) {
   return (
-    <Styled.Root>
+    <Styled.Root afterFinalRound={afterFinalRound}>
       <ImageWrapper>
-        <Styled.Image src={currentRound.image} alt={currentRound.alt} />
+        <Styled.Image src={currentRoundData.image} alt={currentRoundData.alt} />
       </ImageWrapper>
-      <Tooltip>
+      <Tooltip afterFinalRound={afterFinalRound}>
         <TooltipTitle>⭐️힌트⭐️</TooltipTitle>
-        <TooltipContent>{currentRound.companyInfo}</TooltipContent>
+        <TooltipContent>{currentRoundData.companyInfo}</TooltipContent>
       </Tooltip>
     </Styled.Root>
 
@@ -19,7 +19,7 @@ export default function ImageView({ currentRound }) {
 
 const Styled = {
   Root: styled.div`
-    display:flex;
+    display: ${({ afterFinalRound }) => (afterFinalRound ? 'none' : 'flex')};
     position: relative;
   `,
   Image: styled.img`
@@ -29,6 +29,7 @@ const Styled = {
 };
 
 const Tooltip = styled.div`
+display: ${({ afterFinalRound }) => (afterFinalRound ? 'none' : 'block')};
 top: 30%;
 left:50%;
 position: absolute;

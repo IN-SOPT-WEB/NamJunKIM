@@ -1,11 +1,12 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
 import { flexRowCenter } from '../../styles/mixin';
 
-export default function QuizController({ currentRound, handleClick }) {
+export default function QuizController({ currentRoundData, handleClick, afterFinalRound }) {
   return (
-    <Styled.ItemList>
-      {currentRound.answers.map((item) => (
+    <Styled.ItemList afterFinalRound={afterFinalRound}>
+      {currentRoundData.answers.map((item) => (
         <Styled.Item key={item.toString()} onClick={handleClick}>
           {item}
         </Styled.Item>
@@ -19,8 +20,10 @@ const Styled = {
     ${flexRowCenter}
     width: 100%;
     list-style: none;
+    display: ${({ afterFinalRound }) => (afterFinalRound ? 'none' : 'flex')};
     padding:0;
-  `,
+    
+`,
   Item: styled.li`
     ${flexRowCenter}
     cursor: pointer;

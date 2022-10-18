@@ -1,10 +1,10 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { flexRowCenter } from '../../styles/mixin';
 
-export default function resetButton({ resetGame }) {
+export default function resetButton({ resetGame, afterFinalRound }) {
   return (
-    <Styled.Root onClick={resetGame}>
+    <Styled.Root onClick={resetGame} afterFinalRound={afterFinalRound}>
       👈🏻
       {' '}
       다시하기
@@ -37,5 +37,10 @@ const Styled = {
     &:hover{
         animation: ${resetBtnHoverAnimation} 1s linear infinite;
     }
+    ${({ afterFinalRound }) => (afterFinalRound && css`
+        font-size: 5rem;
+        animation: ${resetBtnHoverAnimation} 1s linear infinite;
+        margin-bottom:25rem;
+    `)}
     `,
 };

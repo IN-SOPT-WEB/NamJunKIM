@@ -1,59 +1,93 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ImageView from '../content/ImageView';
 import ScoreView from '../content/ScoreView';
 import QuizController from '../content/QuizController';
 import rounds from '../../models/gameData';
-import { flexColumnCenter } from '../../styles/mixin';
 import ResetButton from '../content/ResetButton';
+import ModalPortal from '../../Portal';
+import Modal from '../content/Modal';
+import { flexColumnCenter } from '../../styles/mixin';
 
 export default function Contents() {
-  const [currentRound, setCurrentRound] = useState([...rounds][0]);
-  const [step, setStep] = useState(0);
+  const [currentRoundData, setCurrentRoundData] = useState([...rounds][0]);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [modalOn, setModalOn] = useState(false);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(true);
+  const [afterFinalRound, setAfterFinalRound] = useState(false);
+  const [myScore, setMyScore] = useState(0);
 
   useEffect(() => {
-    setCurrentRound([...rounds][step]);
-  }, [step]);
+    setCurrentRoundData([...rounds][currentStep]);
+  }, [currentStep]);
+
+  const resetGame = () => {
+    if (currentStep === 0) {
+      alert('이미 첫 단계입니다!');
+    } else {
+      setCurrentStep(0);
+      setAfterFinalRound(false);
+      setMyScore(0);
+    }
+  };
 
   const goNextRound = () => {
-    setStep(step + 1);
+    setCurrentStep(currentStep + 1);
   };
-  const resetGame = () => {
-    if (step === 0) {
-      alert('이미 첫 라운드입니다.');
-    } else {
-      setStep(0);
+
+  const toggleModal = () => {
+    setModalOn(!modalOn);
+  };
+
+  const handleStep = () => {
+    currentStep === 4 ? setAfterFinalRound(true) : goNextRound();
+  };
+
+  const modalEventHandler = () => {
+    toggleModal();
+    if (modalOn && isCorrectAnswer) {
+      setMyScore(myScore + 20);
+      handleStep();
     }
   };
 
   const handleClick = (e) => {
-    const pickedItem = e.target.innerText;
-    const isCorrect = currentRound.correctAnswer;
-    const finalRound = 4;
-    if (pickedItem === isCorrect && step !== finalRound) {
-      goNextRound();
-    }
-    if (pickedItem === isCorrect && step === finalRound) {
-      alert('승리했습니다!!');
-      resetGame();
-    }
+    const userAnswer = e.target.innerText;
+    const isCorrect = currentRoundData.correctAnswer;
+    userAnswer === isCorrect ? setIsCorrectAnswer(true) : setIsCorrectAnswer(false);
+    modalEventHandler();
   };
 
   return (
     <Styled.Root>
       <ScoreView
-        step={step}
+        myScore={myScore}
+        currentStep={currentStep}
+        afterFinalRound={afterFinalRound}
       />
       <ImageView
-        currentRound={currentRound}
+        currentRoundData={currentRoundData}
+        afterFinalRound={afterFinalRound}
       />
       <QuizController
-        currentRound={currentRound}
+        currentRoundData={currentRoundData}
+        afterFinalRound={afterFinalRound}
         handleClick={handleClick}
       />
       <ResetButton
+        afterFinalRound={afterFinalRound}
         resetGame={resetGame}
       />
+      <ModalPortal>
+        {modalOn && (
+        <Modal
+          currentRoundData={currentRoundData}
+          isCorrectAnswer={isCorrectAnswer}
+          modalEventHandler={modalEventHandler}
+        />
+        )}
+      </ModalPortal>
     </Styled.Root>
   );
 }
