@@ -15,7 +15,7 @@
 |2주차|[**velogClone with JS**](https://github.com/IN-SOPT-WEB/NamJunKIM/pull/4)|
 |2주차|[**생각과제-타입스크립트**](https://github.com/IN-SOPT-WEB/NamJunKIM/pull/5)|
 |3주차|[**내주식떡상가즈아~!!!**](https://github.com/IN-SOPT-WEB/NamJunKIM/pull/6)|
-|3주차|[**생각과제-SPA프레임워크, StyledComponents](https://github.com/IN-SOPT-WEB/NamJunKIM/pull/7)|()|
+|3주차|[**생각과제-SPA프레임워크, StyledComponents**](https://github.com/IN-SOPT-WEB/NamJunKIM/pull/7)|()|
 
 ## 🔨 커밋 컨벤션(유다시티 컨벤션 가이드 참조)
 
