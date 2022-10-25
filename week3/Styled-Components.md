@@ -4,7 +4,7 @@
 
 - 본래 CSS는 **단순한 형식의 웹 문서**를 디자인하는 용도로 탄생했기 떄문에, 애플리케이션스러운 UI와 **컴포넌트 방식의 개발과는 맞지 않는** 설계가 되었다. 
 - 모든 문서에 일괄적으로 적용하기 위해 만들어졌던 기능은 다른 컴포넌트 영역의 스타일을 수정할 수도 있는 골칫덩이가 되어 버렸다. (`global Scope` 문제)
-- HTML을 만들고 CSS를 만들어두면 이미 만들어진 CSS가 새로운 컴포넌트를 만들기 위한 제약사항이 되어버리는 문제, 떄로는 반대로 기존에 만들어진 CSS를 덮어씌워야하는 상황이 발생함.(`Specificity`문제)
+- HTML을 만들고 CSS를 만들어두면 이미 만들어진 CSS가 새로운 컴포넌트를 만들기 위한 제약사항이 되어버리는 문제, 로는 반대로 기존에 만들어진 CSS를 덮어씌워야하는 상황이 발생함.(`Specificity`문제)
 
 ### 1️⃣ CSS in JS
 
@@ -145,11 +145,167 @@ const sizes = {
 
 ### 2️⃣ tailwind CSS
 
+- JS가 아닌 CSS 생태계에서 Specificity 문제를 해결하기 위한 패러다임을 제시한 CSS 프레임워크이다.
+- `m-2`,`h-2`등 미리 만들어진 유틸리티 클래스를 활용하는 방식으로 HTML 코드 내에서 스타일링 할 수 있다.
+- 스타일 코드가 HTML 안에 있기 때문에, 별도의 CSS 파일을 관리할 필요가 없다.
+- 이미 클래스가 구성돼있으므로, **클래스명을 따로 정할 필요가 없으며, 서비스가 커져도 CSS의 크기가 커지지 않는다.**
+- figma Design Kit을 가져다 쓸 수 있어서 **피그마와의 궁합이 좋다.** 이 경우 CSS in JS 처럼 일일히 컬러 팔레트, 타이포그래피 등을 지정할 필요가 없다.
+- 다크모드, 반응형 디자인등을 간편하게 구현할 수 있고, 스타일이 복잡해보인다면 `@apply` 키워드를 통해 클래스 커스텀이 가능하고 추상화 단위를 변경할 수 있다.
+- 빌드 타임에 생성되므로 동적변수를 생성할 수 없다는 문제가 있고, `rem`단위가 기본이기때문에 `px`크기로 사용시 기본값을 바꿔줘야 한다.
+- 미리 제공한 애니메이션만 제공하기 때문에, `animation`과 `transition` 사용에 제약이 있다. 즉 동적인 웹을 구현하기엔 한계가 있다.
+- 클래스명을 익히며 사용해야하는 러닝커브가 존재한다.
 
+```html
+<figure class="md:flex bg-slate-100 rounded-xl p-8 md:p-0 dark:bg-slate-800">
+  <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="/sarah-dayan.jpg" alt="" width="384" height="512">
+  <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+    <blockquote>
+      <p class="text-lg font-medium">
+        “Tailwind CSS is the only framework that I've seen scale
+        on large teams. It’s easy to customize, adapts to any design,
+        and the build size is tiny.”
+      </p>
+    </blockquote>
+    <figcaption class="font-medium">
+      <div class="text-sky-500 dark:text-sky-400">
+        Sarah Dayan
+      </div>
+      <div class="text-slate-700 dark:text-slate-500">
+        Staff Engineer, Algolia
+      </div>
+    </figcaption>
+  </div>
+</figure>
+```
 
+```js
+  import React from 'react'
+import styled from 'styled-components'
+import tw from 'twin.macro'
+
+const Heading = styled.h1`
+  ${tw`font-bold text-4xl text-blue-100 font-sans`}
+`
+const IndexPage = () => (
+  <Heading>
+    <div className="bg-gray-800">text</div>;
+  </Heading>
+)
+
+```
+- 가독성이 문제라면 별도 의존성을 추가하여 CSS in JS와 함께 사용할 수 있다.
 
 ## ✅ 난 어떤 스타일링 라이브러리가 가장 마음에 드는가?
 
+- 최근 스타일드 컴포넌트를 사용하면서 느끼는 몇몇 단점이 있다.
+- 아래처럼 CSS 코드가 길어지는 경우, 코드량이 과도하게 길어져서 문제를 수정하기 위해 페이지 내에서 스크롤을 해야하는 불편함이 생긴다.
+
+```js
+  return (
+    <Styled.Root>
+      <Styled.ColorPickerSection>
+        <Styled.ColorContainer>{colorCodes}</Styled.ColorContainer>
+      </Styled.ColorPickerSection>
+      <Styled.ButtonSection>
+        <Styled.MenuBox>
+          <Styled.ImgWrapper>
+            <RescheduleIC />
+          </Styled.ImgWrapper>
+          <Styled.ButtonLetter>우</Styled.ButtonLetter>
+        </Styled.MenuBox>
+        <Styled.MenuBox>
+          <Styled.ImgWrapper>
+            <Image src={icon_trashCan} alt="로고이미지" width={'20'} height={'20'} />
+          </Styled.ImgWrapper>
+          <Styled.ButtonLetter>삭제하기</Styled.ButtonLetter>
+        </Styled.MenuBox>
+      </Styled.ButtonSection>
+    </Styled.Root>
+  );
+}
+
+export default DayPlanSettingModal;
+
+const Styled = {
+  Root: styled.div<{ top: number; left: number }>`
+    position: absolute;
+    z-index: 6;
+    top: ${({ top }) => top + 'px'};
+    left: ${({ left }) => left + 'px'};
+    width: 10.2rem;
+    height: 12rem;
+    background-color: ${theme.category.cate_white};
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 20px -5px ${theme.colors.letter_grey};
+    transform: translateY(-50%);
+  `,
+  ColorPickerSection: styled.div`
+    width: 100%;
+    height: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
+  ButtonSection: styled.div`
+    display: flex;
+    width: 100%;
+    height: 50%;
+    font-size: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  `,
+  MenuBox: styled.div`
+    display: flex;
+    width: 100%;
+    height: 50%;
+    border-top: 1px dashed ${theme.colors.letter_grey};
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  `,
+  ImgWrapper: styled.div`
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+  `,
+  ButtonLetter: styled.div`
+    margin-right: 1rem;
+    margin-left: 0.7rem;
+    padding-top: 0.2rem;
+  `,
+  ColorContainer: styled.div`
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 7.4rem;
+    height: 3.6rem;
+  `,
+  ColorPicker: styled.div`
+    width: 1.4rem;
+    height: 1.4rem;
+    margin-right: 0.1rem;
+    margin-bottom: 0.8rem;
+    border-radius: 1rem;
+    background-color: ${({ color }) => color};
+    border: ${({ color }) => color === '#FFFFFF' && '0.5px solid #B6BEC9'};
+    cursor: pointer;
+  `,
+};
+```
+
+- 현재 작은 개인 프로젝트에서 TailwindCSS를 사용하는 중인데 코드량이 상대적으로 적고 인라인 클래스를 직접 부여할 수 있어 이런 불편함이 줄어들었다. 
+- **클래스 이름을 따로 정할 필요가 없는 것**이 매우 큰 장점이라고 생각한다. 이로 인해 CSS나 SCSS를 사용할 때 겪었던 클래스 네이밍 문제가 없어졌다.
+- 리액트와 사용시 컴포넌트 별로 독립적으로 클래스를 선언하므로 유지보수도 간편하다!!
+- 아직 규모가 큰 프로젝트는 경험해본적이 없지만, CSS의 유틸리티 클래스를 사용하므로 CSS in JS보다 더 나은 빌드타임 성능을 기대해볼 수 있다고 한다.
+- 가장 큰 문제는 동적 웹 구현의 어려움과 가독성인 것 같은데, 이 부분은 익숙해지면 극복될 문제라고 생각한다. 
+- 이런 경우 별도의 클래스를 선언하거나 CSSinJS와 함께 사용하는 방식을 써봐도 좋을것 같다. 
+
+**👉🏻 그래서 나는 테일윈드 CSS를 개인적으로 더 배워보고싶다는 생각이 든다!!**
 
 ## 📌 참조 레퍼런스
 
@@ -158,3 +314,5 @@ const sizes = {
 [카카오웹툰은 CSS를 어떻게 작성하고 있을까?](https://fe-developers.kakaoent.com/2022/220210-css-in-kakaowebtoon/) 
 
 [styled-components와 emotion, 도대체 차이가 뭔데?](https://velog.io/@bepyan/styled-components-%EA%B3%BC-emotion-%EB%8F%84%EB%8C%80%EC%B2%B4-%EC%B0%A8%EC%9D%B4%EA%B0%80-%EB%AD%94%EA%B0%80)
+
+[Tailwind CSS 사용기](https://fe-developers.kakaoent.com/2022/220303-tailwind-tips/)
